@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'OrderFood',
 ]
 
 MIDDLEWARE = [
@@ -75,9 +76,16 @@ WSGI_APPLICATION = 'Portafolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': '44.196.189.75:51521/xe',
+        'USER': 'c##duoc',
+        'PASSWORD': '1234',
+        'TEST': {
+            'USER': 'default_test',
+            'TBLSPACE': 'default_test_tbls',
+            'TBLSPACE_TMP': 'default_test_tbls_tmp',
+        },
+    },
 }
 
 
@@ -103,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
 
@@ -117,4 +125,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+MEDIA_URL = '/imagenes/menú/'
 STATIC_URL = '/static/'

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block contenido %}
+{% load static %}
+
+<div class="col-md-6 p-0 h-md-100 loginarea">
+    <div class="d-md-flex align-items-center h-md-100 p-3 justify-content-center">
+        <form method="POST" action="/generar-cuenta/">
+            {% csrf_token %}
+            <h3 class="mb-4 text-center">Generar Cuenta</h3>
+            <div class="form-group">
+                <input type="text" class="form-control" name="nombre"
+                     placeholder="nombre_completo" id="" required="">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="titulo"
+                    aria-describedby="titulo" id="" placeholder="Profesionar o Tenico" required="">
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" name="experiencia_laboral"
+                    aria-describedby="experiencia_laboral" id="" placeholder="Experiencia laboral" required="">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" id="" name="email_enc_cocina"
+                    aria-describedby="email_enc_cocina" placeholder="ejemplo:encargadococina@dominio.com" required="">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="" name="contraseña1"
+                    aria-describedby="" placeholder="" required="">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="" name="contraseña2"
+                    aria-describedby="" placeholder="" required="">
+            </div>
+            <input type="submit" class="btn btn-dark btn-round btn-block" value="Generar">
+        </form>
+    </div>
+</div>
+{% endblock %}
